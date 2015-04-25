@@ -4,18 +4,24 @@ import sys
 
 if len(sys.argv) == 2:
     ip_addr = sys.argv.pop()
-    print "The IP address is: %s" % ip_addr
 else:
     print "You made an error"
 
-ip_addr_list = ip_addr(".")
+ip_addr_octet_list = ip_addr.split(".")
 
-first_oct_bin = bin(int(ip_addr_list[0]))
-second_oct_bin = bin(int(ip_addr_list[1]))
-third_oct_bin = bin(int(ip_addr_list[2]))
-fourth_oct_bin = bin(int(ip_addr_list[3]))
+ip_addr_bin_list = []
+
+for i,element in enumerate(ip_addr_octet_list):
+    ip_addr_bin_list.append(bin(int(ip_addr_octet_list[i]))) 
+
+for i,element in enumerate(ip_addr_bin_list):
+    ip_addr_bin_list[i] = element[2:]
+
+    while len(ip_addr_bin_list[i]) < 8:
+        ip_addr_bin_list[i] = "0" + ip_addr_bin_list[i] 
+
 
 print "\n"
-print "%-20s %-20s %-20s %-20s" % ("first_octet", "second_octet", "third_octet", "fourth_octet")
-print "%-20s %-20s %-20s %-20s" % (first_oct_bin, second_oct_bin, third_oct_bin, fourth_oct_bin)
+print "%-20s %-20s" % ("IP address", "Binary")
+print "%-20s %s.%s.%s.%s" % (ip_addr, ip_addr_bin_list[0], ip_addr_bin_list[1], ip_addr_bin_list[2], ip_addr_bin_list[3])
 
