@@ -20,8 +20,9 @@ for i,element in enumerate(ip_addr_bin_list):
     while len(ip_addr_bin_list[i]) < 8:
         ip_addr_bin_list[i] = "0" + ip_addr_bin_list[i] 
 
+ip_addr_bin = ".".join(ip_addr_bin_list)    
 
 print "\n"
 print "%-20s %-20s" % ("IP address", "Binary")
-print "%-20s %s.%s.%s.%s" % (ip_addr, ip_addr_bin_list[0], ip_addr_bin_list[1], ip_addr_bin_list[2], ip_addr_bin_list[3])
+print "%-20s %-20s" % (ip_addr, ip_addr_bin)
 
