@@ -14,11 +14,11 @@ ip_addr_bin_list = []
 for i,element in enumerate(ip_addr_octet_list):
     ip_addr_bin_list.append(bin(int(ip_addr_octet_list[i]))) 
 
-for i,element in enumerate(ip_addr_bin_list):
-    ip_addr_bin_list[i] = element[2:]
+for j,element in enumerate(ip_addr_bin_list):
+    ip_addr_bin_list[j] = element[2:]
 
-    while len(ip_addr_bin_list[i]) < 8:
-        ip_addr_bin_list[i] = "0" + ip_addr_bin_list[i] 
+    while len(ip_addr_bin_list[j]) < 8:
+        ip_addr_bin_list[j] = "0" + ip_addr_bin_list[j] 
 
 ip_addr_bin = ".".join(ip_addr_bin_list)    
 
